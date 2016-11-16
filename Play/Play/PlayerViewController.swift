@@ -193,7 +193,9 @@ class PlayerViewController: UIViewController {
 
     func previousTrackTapped(_ sender: UIButton) {
         // FILL ME IN
-        if (currentIndex > 0) {
+        if ((CMTimeGetSeconds(player.currentTime())) > 3) {
+            player.seek(to: kCMTimeZero)
+        } else if (currentIndex > 0) {
             //If within bounds, increase index by 1
             currentIndex = currentIndex - 1
             
